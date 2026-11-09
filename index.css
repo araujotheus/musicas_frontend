@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 5px 15px rgba(0, 0, 128, 0.4); }
+    50% { box-shadow: 0 5px 25px rgba(0, 0, 128, 0.8); }
+    100% { box-shadow: 0 5px 15px rgba(0, 0, 128, 0.4); }
+}
+
+body {
+    background: linear-gradient(135deg, #000000 0%, #000022 50%, #00004d 100%);
+    min-height: 100vh;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideUp 0.6s ease-out;
+}
+
+h1 {
+    color: #fff;
+    font-weight: 800;
+    font-size: 28px;
+    text-shadow: 2px 2px 4px #000;
+    letter-spacing: 1px;
+}
+
+.link-cadastrar {
+    background: linear-gradient(45deg, #000080, #000033);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: pulseGlow 3s infinite;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.link-cadastrar:hover {
+    transform: scale(1.05) translateY(-2px);
+    background: #fff;
+    color: #000080;
+    animation: none;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#listaMusicas {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.musica {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-left: 8px solid #000080;
+    animation: slideUp 0.8s ease-out both;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    color: #000;
+}
+
+/* Atrasando a animação dos cards para um efeito em cascata */
+.musica:nth-child(1) { animation-delay: 0.2s; }
+.musica:nth-child(2) { animation-delay: 0.4s; }
+
+.musica:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 45px rgba(0, 0, 128, 0.3);
+}
+
+.musica h2 {
+    color: #000080;
+    font-size: 26px;
+    margin-bottom: 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.artista {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.detalhes {
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 25px;
+    background: #000;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.acoes {
+    display: flex;
+    gap: 15px;
+}
+
+.acoes a.editar, .acoes button.apagar {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-transform: uppercase;
+}
+
+.acoes a.editar {
+    background: #000080;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 128, 0.4);
+}
+
+.acoes a.editar:hover {
+    background: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.acoes button.apagar {
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.acoes button.apagar:hover {
+    background: #000080;
+    color: #fff;
+    border-color: #000080;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 128, 0.4);
+}
